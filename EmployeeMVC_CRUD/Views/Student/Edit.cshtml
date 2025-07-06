@@ -1,0 +1,48 @@
+﻿@model EmployeeMVC_CRUD.Models.Student
+
+@{
+    ViewBag.Title = "Edit Student";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-primary">Edit Student</h2>
+
+    <form asp-action="Edit" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Id" class="form-label"></label>
+            <input asp-for="Id" class="form-control" readonly="readonly" /> @* Id should be readonly for edits *@
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Gender" class="form-label"></label>
+            <input asp-for="Gender" class="form-control" />
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Class" class="form-label"></label>
+            <input asp-for="Class" class="form-control" />
+            <span asp-validation-for="Class" class="text-danger"></span>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <button type="submit" class="btn btn-primary me-md-2">Save Changes</button>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
